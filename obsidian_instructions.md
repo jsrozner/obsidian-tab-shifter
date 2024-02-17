@@ -4,6 +4,11 @@
 - Update your `versions.json` file with `"new-plugin-version": "minimum-obsidian-version"` so older versions of Obsidian can download an older version of your plugin that's compatible.
 - Create new GitHub release using your new version number as the "Tag version". Use the exact version number, don't include a prefix `v`. See here for an example: https://github.com/obsidianmd/obsidian-sample-plugin/releases
 - Upload the files `manifest.json`, `main.js`, `styles.css` as binary attachments. Note: The manifest.json file must be in two places, first the root path of your repository and also in the release.
+  - `git tag <tag>`
+  - `git push origin 1.0.0`
+  - ```
+    gh release create 1.0.0 ./manifest.json ./main.js <any others> 
+    title "Version 1.0.0" --notes "Initial version"```
 - Publish the release.
 
 > You can simplify the version bump process by running `npm version patch`, `npm version minor` or `npm version major` after updating `minAppVersion` manually in `manifest.json`.
