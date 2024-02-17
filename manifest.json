@@ -1,0 +1,11 @@
+{
+	"id": "tab-shifter",
+	"name": "Tab Shifter",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "Enables shifting tabs between different tab splits",
+	"author": "Joshua Rozner",
+	"authorUrl": "github.com/jsrozner",
+	"fundingUrl": "",
+	"isDesktopOnly": true
+}
