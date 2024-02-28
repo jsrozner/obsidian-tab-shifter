@@ -10,24 +10,12 @@ export default class TabShifterPlugin extends Plugin {
         this.addCommand({
             id: 'move-tab-next',
             name: 'Move tab to the next tab group',
-            callback: () => this.moveTabToNextGroup(1),
-			hotkeys: [
-				{
-					modifiers: ["Ctrl", "Alt"], // "Mod" is Ctrl on Windows/Linux and Cmd on Mac
-					key: ']' // The default hotkey, for example, Ctrl+H or Cmd+H
-				}
-			]
+            callback: () => this.moveTabToNextGroup(1)
         });
 		this.addCommand({
 			id: 'move-tab-prev',
 			name: 'Move tab to the prev tab group',
-			callback: () => this.moveTabToNextGroup(-1),
-			hotkeys: [
-				{
-					modifiers: ["Ctrl", "Alt"], // "Mod" is Ctrl on Windows/Linux and Cmd on Mac
-					key: '[' // The default hotkey, for example, Ctrl+H or Cmd+H
-				}
-			]
+			callback: () => this.moveTabToNextGroup(-1)
 		});
     }
 
