@@ -1,6 +1,11 @@
+/*
+Todo (missing functionalities):
+- exclude left/right sidepanes; see below
+- support initial left split (see below)
+ */
 import {Plugin} from "obsidian";
-import {DEV, getParentsForEachLeaf, supportedViewTypes} from "./share";
-import {WorkspaceLeafExtended} from "./typesUnofficial";
+import {DEV, getParentsForEachLeaf, supportedViewTypes} from "../share";
+import {WorkspaceLeafExtended} from "../typesUnofficial";
 
 export class TabShifterPlugin extends Plugin {
 	async onload() {

@@ -1,6 +1,6 @@
 import {Plugin} from "obsidian";
-import {WorkspaceLeafExtended } from "./typesUnofficial";
-import {DEV, supportedViewTypes} from "./share";
+import {WorkspaceLeafExtended } from "../typesUnofficial";
+import {DEV, supportedViewTypes} from "../share";
 
 export default class NextTabPlugin extends Plugin {
 	// note these defaults conflict with nav fwd back...but those seem to do nothing
@@ -36,10 +36,10 @@ export default class NextTabPlugin extends Plugin {
 			return;
 		}
 
-		// todo: remove; prob not an issue
+		// might be able to remove this check, but here for safety
 		const activeFile = activeLeaf.view.file;
 		if (!activeFile) {
-			console.log("No active file; not sure if this is an issue; won't change view");
+			console.log("No active file; not sure if this is is unexpected; won't change view");
 			return;
 		}
 
