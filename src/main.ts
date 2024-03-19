@@ -7,7 +7,7 @@ type PluginConstructor = new (app: Obs.App, manifest: Obs.PluginManifest) => Plu
 
 const pluginList: PluginConstructor[] = [
 	TabShifterPlugin,
-	NextTabPlugin,
+	NextTabPlugin
 ]
 
 export default class PluginWrapper extends Plugin {
@@ -26,3 +26,4 @@ export default class PluginWrapper extends Plugin {
 		})
 	}
 }
+
