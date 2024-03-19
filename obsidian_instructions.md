@@ -8,11 +8,14 @@
   - `git push origin 1.0.0`
   - ```
     gh release create 1.0.0 ./manifest.json ./main.js <any others> 
-    title "Version 1.0.0" --notes "Initial version"```
+    title "Version 1.0.0" --notes "Initial version"
+    ```
 - Publish the release.
 
 > You can simplify the version bump process by running `npm version patch`, `npm version minor` or `npm version major` after updating `minAppVersion` manually in `manifest.json`.
 > The command will bump version in `manifest.json` and `package.json`, and add the entry for the new version to `versions.json`
+
+> Then run `git push`, `git push origin 1.01` (push the tag) then ` gh release create 1.0.1 ./manifest.json ./main.js --title "Version 1.0.1" --notes "Clean up for submit to obsidian"`
 
 ## Adding your plugin to the community plugin list
 
