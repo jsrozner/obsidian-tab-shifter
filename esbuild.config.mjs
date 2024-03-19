@@ -1,6 +1,7 @@
 import esbuild from "esbuild";
 import process from "process";
 import builtins from "builtin-modules";
+import * as fs from "fs";
 
 const banner =
 `/*
@@ -10,6 +11,10 @@ if you want to view the source, please visit the github repository of this plugi
 `;
 
 const prod = (process.argv[2] === "production");
+
+const copyManifest = () => {
+    fs.copyFileSync('manifest.json', 'build/manifest.json');
+};
 
 const context = await esbuild.context({
 	banner: {
@@ -37,12 +42,15 @@ const context = await esbuild.context({
 	logLevel: "info",
 	sourcemap: prod ? false : "inline",
 	treeShaking: true,
-	outfile: "main.js",
+	outfile: "build/main.js",
 });
 
+// todo: better way to copy
 if (prod) {
+	copyManifest();
 	await context.rebuild();
 	process.exit(0);
 } else {
+	copyManifest();
 	await context.watch();
 }

@@ -18,6 +18,7 @@ export interface WorkspaceLeafExtended extends WorkspaceLeaf, WorkspaceItemUnoff
 	view: ViewUnofficialExtended;
 }
 
+// Represents a tab grouping (children are leaf nodes, which hold, e.g., a markdown file)
 export interface WorkspaceTabsExtended extends WorkspaceTabs, WorkspaceItemUnofficialExtended {
 	children: WorkspaceLeafExtended[];
 	type: "tabs";
