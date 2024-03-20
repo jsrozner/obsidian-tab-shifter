@@ -16,7 +16,7 @@ export class TabShifterPlugin extends Plugin {
 			id: 'move-tab-next',
 			name: 'Move tab to the next tab group',
 			callback: () => this.moveTabToNextGroup(1),
-			hotkeys: env.dev ? undefined : [
+			hotkeys: env.prod ? undefined : [
 				{
 					modifiers: ["Ctrl", "Alt"], // "Mod" is Ctrl on Windows/Linux and Cmd on Mac
 					key: ']' // The default hotkey, for example, Ctrl+H or Cmd+H
@@ -27,7 +27,7 @@ export class TabShifterPlugin extends Plugin {
 			id: 'move-tab-prev',
 			name: 'Move tab to the prev tab group',
 			callback: () => this.moveTabToNextGroup(-1),
-			hotkeys: env.dev ? undefined : [
+			hotkeys: env.prod ? undefined : [
 				{
 					modifiers: ["Ctrl", "Alt"], // "Mod" is Ctrl on Windows/Linux and Cmd on Mac
 					key: '[' // The default hotkey, for example, Ctrl+H or Cmd+H

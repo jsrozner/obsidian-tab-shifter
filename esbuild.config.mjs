@@ -43,12 +43,12 @@ const context = await esbuild.context({
 });
 
 // copy to build dir
-const copyManifest = () => {
+const copyFilesToBuildDir = () => {
 	fs.copyFileSync('manifest.json', 'build/manifest.json');
 };
 
 (async () => {
-	copyManifest();
+	copyFilesToBuildDir();
 	// instead of context.watch() we use nodemon to watch
 	await context.rebuild();
 	process.exit(0);

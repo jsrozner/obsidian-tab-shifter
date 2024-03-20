@@ -4,11 +4,13 @@
 	"description": "Enables shifting tabs between different tab splits and some other basic IDE tab functionalities",
 	"main": "main.js",
 	"scripts": {
-		"_prod": "NODE_ENV=production node esbuild.config.mjs production",
-		"build_prod": "yarn lint && tsc -noEmit -skipLibCheck && yarn _prod",
-		"dev": "NODE_ENV=development node esbuild.config.mjs",
-		"dev_copy_files_for_hotload": "node ./src/scripts/copyFiles.js",
-		"watch": "nodemon",
+		"prebuild_dev": "NODE_ENV=development ts-node scripts/generateStaticEnv.mjs",
+		"prebuild_prod": "NODE_ENV=production ts-node scripts/generateStaticEnv.mjs",
+		"_prod": "yarn prebuild_prod && node esbuild.config.mjs production",
+		"prod_all": "yarn lint && tsc -noEmit -skipLibCheck && yarn _prod",
+		"dev": "yarn prebuild_dev && node esbuild.config.mjs",
+		"dev_copy_files_for_hotload": "node scripts/copyFiles.js",
+		"watch_dev": "nodemon",
 		"lint": "eslint src/*.ts",
 		"version": "node version-bump.mjs && git add manifest.json versions.json"
 	},
@@ -25,6 +27,7 @@
 		"eslint": "^8.57.0",
 		"nodemon": "^3.1.0",
 		"obsidian": "latest",
+		"ts-node": "^10.9.2",
 		"tslib": "2.4.0",
 		"typescript": "4.7.4"
 	},
@@ -37,6 +40,7 @@
 		],
 		"ext": "ts,js",
 		"ignore": [
+			"src/generated/*",
 			"src/**/*.test.ts"
 		],
 		"exec": "yarn dev && yarn dev_copy_files_for_hotload"

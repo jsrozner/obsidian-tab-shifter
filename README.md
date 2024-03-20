@@ -1,9 +1,13 @@
 # Tab shifter
 
-This is a tab shifting plugin that behaves similarly to tab-shifters in 
-code editors. It has the same behavior as, e.g., the tab-shifter plugin for WebStorm.
+This is a tab navigating plugin that behaves similarly to those in code editors.
 
-Tabs can be either moved to the previous or to the next "tab group".
+As of V2 it has two functionalities
+1. tab shifting  (v1 behavior unchanged)
+	- It has the same behavior as, e.g., the tab-shifter plugin for WebStorm.
+	- Tabs can be either moved to the previous or to the next "tab group".
+2. tab navigation: (v2 behavior, new)
+   - Enables, e.g., cmd+alt+arrow to be used to navigate pref/next among open tabs
 
 ## Caveats
 ### Unofficial API

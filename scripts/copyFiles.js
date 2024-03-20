@@ -27,5 +27,6 @@ if (!targetDir || !fs.existsSync(targetDir)) {
 }
 
 console.log(`Copying from ./build to ${targetDir}`);
-// Execute the copy command
 execSync(`cp -r ./build/* ${targetDir}`, { stdio: 'inherit' });
+// Makes hotreload extension know to run
+execSync(`touch ${targetDir}/.hotreload`, { stdio: 'inherit' });

@@ -1,0 +1,8 @@
+Version 2.0.1:
+- Fix issue where I was setting default hotkeys (.env is not available in Obsidian)
+
+Version 2.0.0:
+- add Support for prev/back tab navigation
+
+Version 1.0.0:
+- Original, enables tab shifting

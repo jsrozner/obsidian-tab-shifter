@@ -12,7 +12,7 @@ export default class NextTabPlugin extends Plugin {
 			id: 'focus-next-tab',
 			name: 'Focus next tab',
 			callback: () => this.focusTab(1),
-			hotkeys: env.dev ? undefined : [
+			hotkeys: env.prod ? undefined : [
 				{
 					modifiers: ["Meta", "Alt"], // "Mod" is Ctrl on Windows/Linux and Cmd on Mac
 					key: 'ArrowRight' // The default hotkey, for example, Ctrl+H or Cmd+H
@@ -23,7 +23,7 @@ export default class NextTabPlugin extends Plugin {
 			id: 'focus-prev-tab',
 			name: 'Focus prev tab',
 			callback: () => this.focusTab(-1),
-			hotkeys: env.dev ? undefined : [
+			hotkeys: env.prod ? undefined : [
 				{
 					modifiers: ["Meta", "Alt"], // "Mod" is Ctrl on Windows/Linux and Cmd on Mac
 					key: 'ArrowLeft' // The default hotkey, for example, Ctrl+H or Cmd+H
