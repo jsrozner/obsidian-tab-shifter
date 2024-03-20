@@ -1,6 +1,6 @@
 {
 	"name": "obsidian-sample-plugin",
-	"version": "1.0.1",
+	"version": "2.0.0",
 	"description": "Enables shifting tabs between different tab splits and some other basic IDE tab functionalities",
 	"main": "main.js",
 	"scripts": {
