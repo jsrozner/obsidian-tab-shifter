@@ -1,5 +1,4 @@
 # Tab shifter
-
 This is a tab navigating plugin that behaves similarly to those in code editors.
 
 As of V2 it has two functionalities
@@ -8,6 +7,7 @@ As of V2 it has two functionalities
 	- Tabs can be either moved to the previous or to the next "tab group".
 2. tab navigation: (v2 behavior, new)
    - Enables, e.g., cmd+alt+arrow to be used to navigate pref/next among open tabs
+   - Turns out it's different from existing Next Tab command in that it will go across tab group boundaries
 
 ## Caveats
 ### Unofficial API

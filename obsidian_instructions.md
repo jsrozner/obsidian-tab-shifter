@@ -1,8 +1,10 @@
+# Background
+- This repo originally forked from [repo](https://github.com/obsidianmd/obsidian-sample-plugin)
 ## Releasing new releases
 1. Update manifest.json and version.json: 
 	```
 	# first update manifest.json with min app version
-	yarn version --new-version [major | minor] 		# not sure what version patch does
+	yarn version --new-version [major | minor | patch] 		
 	# command will modify manifest.json and versions.json appropriately
 	```
 	Notes on what this does / what it should do:
