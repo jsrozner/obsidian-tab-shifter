@@ -4,7 +4,9 @@
 1. Update manifest.json and version.json: 
 	```
 	# first update manifest.json with min app version
-	yarn version --new-version [major | minor | patch] 		
+ 	# yarn creates a version with a v, but obsidian doesn't want that? 
+ 	yarn prod_all
+	yarn version --new-version [major | minor | patch] --no-git-tag-version
 	# command will modify manifest.json and versions.json appropriately
 	```
 	Notes on what this does / what it should do:
@@ -18,7 +20,8 @@
 2. Tag and create release 
 	```
 	# make sure to use the correct version number
-	git tag <version_num>
+ 	# this is done by the version command
+	git tag <version_num, no V!>
 	# pushes tag
 	git push origin <version_num>
  

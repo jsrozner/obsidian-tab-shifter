@@ -1,5 +1,8 @@
 import { readFileSync, writeFileSync } from "fs";
 
+// read from package.json, which is set by yarn version --new-version
+// note that yarn has its own 'version' process that runs before our script defined in package.json
+// git commit runs after both scripts finish
 const targetVersion = process.env.npm_package_version;
 
 // read minAppVersion from manifest.json and bump version to target version
