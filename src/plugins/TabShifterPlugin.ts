@@ -4,8 +4,11 @@ Todo (missing functionalities):
 - support initial left split (see below)
  */
 import {Plugin} from "obsidian";
-import {DEV, getParentsForEachLeaf, supportedViewTypes} from "../share";
+import { getParentsForEachLeaf, supportedViewTypes} from "../share";
 import {WorkspaceLeafExtended} from "../typesUnofficial";
+import {getEnvVars} from "../env";
+
+const env = getEnvVars();
 
 export class TabShifterPlugin extends Plugin {
 	async onload() {
@@ -13,7 +16,7 @@ export class TabShifterPlugin extends Plugin {
 			id: 'move-tab-next',
 			name: 'Move tab to the next tab group',
 			callback: () => this.moveTabToNextGroup(1),
-			hotkeys: !DEV ? undefined : [
+			hotkeys: env.dev ? undefined : [
 				{
 					modifiers: ["Ctrl", "Alt"], // "Mod" is Ctrl on Windows/Linux and Cmd on Mac
 					key: ']' // The default hotkey, for example, Ctrl+H or Cmd+H
@@ -24,7 +27,7 @@ export class TabShifterPlugin extends Plugin {
 			id: 'move-tab-prev',
 			name: 'Move tab to the prev tab group',
 			callback: () => this.moveTabToNextGroup(-1),
-			hotkeys: !DEV ? undefined : [
+			hotkeys: env.dev ? undefined : [
 				{
 					modifiers: ["Ctrl", "Alt"], // "Mod" is Ctrl on Windows/Linux and Cmd on Mac
 					key: '[' // The default hotkey, for example, Ctrl+H or Cmd+H

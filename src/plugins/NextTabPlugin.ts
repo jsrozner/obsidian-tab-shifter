@@ -1,6 +1,9 @@
 import {Plugin} from "obsidian";
 import {WorkspaceLeafExtended } from "../typesUnofficial";
-import {DEV, supportedViewTypes} from "../share";
+import {supportedViewTypes} from "../share";
+import {getEnvVars} from "../env";
+
+const env = getEnvVars();
 
 export default class NextTabPlugin extends Plugin {
 	// note these defaults conflict with nav fwd back...but those seem to do nothing
@@ -9,7 +12,7 @@ export default class NextTabPlugin extends Plugin {
 			id: 'focus-next-tab',
 			name: 'Focus next tab',
 			callback: () => this.focusTab(1),
-			hotkeys: ! DEV ? undefined : [
+			hotkeys: env.dev ? undefined : [
 				{
 					modifiers: ["Meta", "Alt"], // "Mod" is Ctrl on Windows/Linux and Cmd on Mac
 					key: 'ArrowRight' // The default hotkey, for example, Ctrl+H or Cmd+H
@@ -20,7 +23,7 @@ export default class NextTabPlugin extends Plugin {
 			id: 'focus-prev-tab',
 			name: 'Focus prev tab',
 			callback: () => this.focusTab(-1),
-			hotkeys: ! DEV ? undefined : [
+			hotkeys: env.dev ? undefined : [
 				{
 					modifiers: ["Meta", "Alt"], // "Mod" is Ctrl on Windows/Linux and Cmd on Mac
 					key: 'ArrowLeft' // The default hotkey, for example, Ctrl+H or Cmd+H

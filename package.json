@@ -1,32 +1,44 @@
 {
 	"name": "obsidian-sample-plugin",
 	"version": "1.0.1",
-	"description": "This is a sample plugin for Obsidian (https://obsidian.md)",
+	"description": "Enables shifting tabs between different tab splits and some other basic IDE tab functionalities",
 	"main": "main.js",
 	"scripts": {
-		"dev": "node esbuild.config.mjs",
-		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
-		"version": "node version-bump.mjs && git add manifest.json versions.json",
+		"_prod": "NODE_ENV=production node esbuild.config.mjs production",
+		"build_prod": "yarn lint && tsc -noEmit -skipLibCheck && yarn _prod",
+		"dev": "NODE_ENV=development node esbuild.config.mjs",
+		"dev_copy_files_for_hotload": "node ./src/scripts/copyFiles.js",
+		"watch": "nodemon",
 		"lint": "eslint src/*.ts",
-
-		"mydev": "yarn run build && yarn run postbuild",
-
-		"postbuild": "bash -c 'cp -R build/ \"../dev/.obsidian/plugins/tab-shifter/\"'"
+		"version": "node version-bump.mjs && git add manifest.json versions.json"
 	},
 	"keywords": [],
-	"author": "",
+	"author": "Joshua Rozner",
 	"license": "MIT",
 	"devDependencies": {
 		"@types/node": "^16.11.6",
 		"@typescript-eslint/eslint-plugin": "5.29.0",
 		"@typescript-eslint/parser": "5.29.0",
 		"builtin-modules": "3.3.0",
+		"dotenv": "^16.4.5",
 		"esbuild": "0.17.3",
+		"eslint": "^8.57.0",
+		"nodemon": "^3.1.0",
 		"obsidian": "latest",
 		"tslib": "2.4.0",
 		"typescript": "4.7.4"
 	},
-	"dependencies": {
-		"eslint": "^8.56.0"
+	"nodemonConfig": {
+		"watch": [
+			"src/",
+			".env",
+			"esbuild.config.mjs",
+			"package.json"
+		],
+		"ext": "ts,js",
+		"ignore": [
+			"src/**/*.test.ts"
+		],
+		"exec": "yarn dev && yarn dev_copy_files_for_hotload"
 	}
 }
