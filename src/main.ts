@@ -1,13 +1,11 @@
 import {Plugin} from 'obsidian';
-import NextTabPlugin from "./plugins/NextTabPlugin";
-import {TabShifterPlugin} from "./plugins/TabShifterPlugin";
 import * as Obs from "obsidian/obsidian"
+import {ArrowNavPlugin} from "./plugins/ArrowNavPlugin";
 
 type PluginConstructor = new (app: Obs.App, manifest: Obs.PluginManifest) => Plugin;
 
 const pluginList: PluginConstructor[] = [
-	TabShifterPlugin,
-	NextTabPlugin
+	ArrowNavPlugin
 ]
 
 export default class PluginWrapper extends Plugin {
