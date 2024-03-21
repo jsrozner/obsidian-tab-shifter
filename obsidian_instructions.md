@@ -3,9 +3,10 @@
 ## Releasing new releases
 1. Update manifest.json and version.json: 
 	```
+ 	# rebuild!
+ 	yarn prod_all
 	# first update manifest.json with min app version
  	# yarn creates a version with a v, but obsidian doesn't want that? 
- 	yarn prod_all
 	yarn version --new-version [major | minor | patch] --no-git-tag-version
 	# command will modify manifest.json and versions.json appropriately
 	```
