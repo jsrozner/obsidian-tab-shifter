@@ -51,3 +51,7 @@
 	- eslint will then create a report with suggestions for code improvement by file and line number.
 - If your source code is in a folder, such as `src`, you can use eslint with this command to analyze all files in that folder:
 	- `eslint .\src\`
+
+# Dev setup
+- symlink build dir to obsidian vault `ln -s "$(pwd)/build "...obsidian/.obsidian/plugins/_dev_plugin"`
+  - note that this will have the same name as the plugin installed via community

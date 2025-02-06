@@ -108,5 +108,6 @@ export class TabShifterPlugin extends Plugin {
 		// close existing leaf and open the current file in the newly created leaf
 		activeLeaf.detach();
 		await newLeaf.openFile(activeFile);
+		this.app.workspace.setActiveLeaf(newLeaf, { focus: true });
 	}
 }
